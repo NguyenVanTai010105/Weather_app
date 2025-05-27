@@ -13,6 +13,7 @@ import SearchBar from "./SearchBar";
 
 export default function YourLocal() {
   const [weatherData, setWeatherData] = useState(false);
+  const [error, setError] = useState("");
   const allIcons = {
     "01d": Clear,
     "01n": Clear,
@@ -32,16 +33,19 @@ export default function YourLocal() {
 
   const search = async (city) => {
     try {
+      setError("");
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
         import.meta.env.VITE_API_KEY
       }&units=metric`;
 
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
-
+      if (data.cod !== 200) {
+        setWeatherData(false);
+        setError("Không tìm thấy thành phố này!");
+        return;
+      }
       const icon = allIcons[data.weather[0].icon] || Clear;
-
       setWeatherData({
         humidity: data.main.humidity,
         temp: Math.floor(data.main.temp),
@@ -50,17 +54,22 @@ export default function YourLocal() {
         icon: icon,
       });
     } catch (error) {
+      setError("Có lỗi xảy ra khi tra cứu!");
+      setWeatherData(false);
       console.error("Fetch weather error: ", error);
     }
   };
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
       <SearchBar onSearch={search} />
+      {error && (
+        <div className="text-red-500 text-center font-mono font-bold mt-2">
+          {error}
+        </div>
+      )}
 
       <div className="weather-container flex w-full mt-4 items-center justify-center">
         <div className="border-4 rounded-xl border-white shadow-xl w-11/12 sm:w-96 h-auto bg-gradient-to-r from-gray-500 to-gray-600">
