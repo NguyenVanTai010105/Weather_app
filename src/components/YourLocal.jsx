@@ -72,7 +72,7 @@ export default function YourLocal() {
       )}
 
       <div className="weather-container flex w-full mt-4 items-center justify-center">
-        <div className="border-4 rounded-xl border-white shadow-xl w-11/12 sm:w-96 h-auto bg-gradient-to-r from-gray-500 to-gray-600">
+        <div className="border-4 rounded-xl border-white shadow-2xl w-11/12 sm:w-96 h-auto bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-700/90 backdrop-blur-md">
           <div className="text-white font-mono p-4 font-bold flex items-center justify-center">
             Dự báo thời tiết
           </div>
