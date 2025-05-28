@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className="main ">
-        <div className=" ">
+        <div >
           <YourLocal />
         </div>
       </div>
