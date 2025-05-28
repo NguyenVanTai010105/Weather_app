@@ -47,7 +47,7 @@ export default function SearchBar({ onSearch }) {
   }, [listening, transcript, resetTranscript]);
 
   return (
-    <div className="flex items-center justify-center mt-6 sm:mt-10 w-full px-2">
+    <div className="flex items-center justify-center   sm:mt-3 w-full ">
       <div className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl py-3 sm:py-5 px-3 sm:px-7 flex bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-gray-300 rounded-full">
         <div className="relative rounded-full flex-1">
           <input

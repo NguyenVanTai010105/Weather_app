@@ -6,8 +6,7 @@ import "./index.css";
 //  import Drizzle from "./assets/drizzle.png";
 //  import Humidity from "./assets/humidity.png";
 
-import BgVideo from "./assets/bg_video1.mp4";
-import SearchBar from "./components/SearchBar";
+
 import YourLocal from "./components/YourLocal";
 
 // import Snow from "./assets/snow.png";

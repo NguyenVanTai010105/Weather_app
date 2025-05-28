@@ -1,5 +1,5 @@
 import "../components/YourLocal.css";
-import Sun from "../assets/clear.png";
+import VietNam from "../assets/iconVN.png";
 import Local from "../assets/local.png/";
 import Humidity from "../assets/humidity.png";
 import Clear from "../assets/clear.png";
@@ -87,7 +87,7 @@ export default function YourLocal() {
             )}
           </div>
 
-          <div className="flex items-center justify-between px-10 mt-5">
+          <div className="flex items-center justify-around px-10 mt-5">
             <img
               src={Temp}
               alt="weather icon"
@@ -98,7 +98,7 @@ export default function YourLocal() {
             </p>
           </div>
 
-          <div className="flex items-center justify-between px-10 mt-5">
+          <div className="flex items-center justify-around px-10 mt-5">
             <img
               src={Humidity}
               alt="weather icon"
@@ -117,6 +117,133 @@ export default function YourLocal() {
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <footer class="bg-slate-50 text-slate-900 mt-16 mb-2">
+        <div class="max-w-7xl mx-auto px-6 md:flex md:justify-between">
+          {/* <!-- Contact Section --> */}
+          <div class="mb-10 md:mb-0">
+            <h4 class="text-sm text-slate-900 mb-2">CONTACT US</h4>
+            <h2 class="text-3xl font-semibold leading-snug mb-6">
+              Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn
+              <p class="text-red-600 font-bold mt-2">
+                <span style={{ color: "red" }}>
+                  Tôi yêu Việt Nam{" "}
+                  <img
+                    src={VietNam}
+                    alt=""
+                    style={{
+                      display: "inline",
+                      verticalAlign: "middle",
+                      height: "1em",
+                    }}
+                  />
+                </span>
+              </p>
+            </h2>
+            <button class="group bg-white text-black px-6 py-3 rounded-full hover:text-white font-medium flex items-center gap-2 hover:bg-black transition">
+              Call me baby!!
+              <span class="ml-1 transform transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
+              <div class="bg-[#1A1A2E] inline-flex group-hover:bg-white group-hover:shadow-lg group-hover:text-black text-white items-center px-4 py-2 rounded-full">
+                <span>033.788.4414</span>
+              </div>
+            </button>
+            <button class="group bg-black text-white px-6 py-3 my-2 rounded-full font-medium flex items-center gap-2 hover:bg-white group-hover:text-black transition">
+              <span class="group-hover:text-black transition-colors duration-200">
+                My email!!
+              </span>
+
+              <span class="ml-1 transform transition-transform duration-200 group-hover:translate-x-1 group-hover:text-black">
+                →
+              </span>
+
+              <div class="bg-white group-hover:bg-black group-hover:shadow-lg inline-flex items-center px-9 py-2 rounded-full text-black group-hover:text-white transition-colors duration-200">
+                <span>033.788.4414</span>
+              </div>
+            </button>
+          </div>
+
+          {/* <!-- Quick Links and Info --> */}
+          <div class="md:flex gap-16">
+            <div class="mb-8 md:mb-0">
+              <h4 class="text-sm text-slate-900 mb-4">QUICK LINKS</h4>
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1  block px-2 py-1 rounded"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1  block px-2 py-1 rounded"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1  block px-2 py-1 rounded"
+                  >
+                    Gallery
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1    block px-2 py-1 rounded"
+                  >
+                    Blogs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1  block px-2 py-1 rounded"
+                  >
+                    About Me
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-sm text-slate-900 mb-4">INFORMATION</h4>
+              <ul class="space-y-3 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg block px-2 py-1 rounded"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg block px-2 py-1 rounded"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:underline transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg block px-2 py-1 rounded"
+                  >
+                    Cookies Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
