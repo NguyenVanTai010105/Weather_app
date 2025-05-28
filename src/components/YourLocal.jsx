@@ -118,8 +118,9 @@ export default function YourLocal() {
         </div>
       </div>
       {/* Footer */}
-      <footer class="bg-slate-50 text-slate-900 mt-16 mb-2">
-        <div class="max-w-7xl mx-auto px-6 md:flex md:justify-between">
+      <footer class="bg-slate-200 text-slate-900 mt-10 ">
+        <hr style={{width: "100%"}} />
+        <div class=" mx-10  md:flex md:justify-between   pt-10">
           {/* <!-- Contact Section --> */}
           <div class="mb-10 md:mb-0">
             <h4 class="text-sm text-slate-900 mb-2">CONTACT US</h4>
@@ -149,7 +150,7 @@ export default function YourLocal() {
                 <span>033.788.4414</span>
               </div>
             </button>
-            <button class="group bg-black text-white px-6 py-3 my-2 rounded-full font-medium flex items-center gap-2 hover:bg-white group-hover:text-black transition">
+            <button class="group bg-black text-white px-5 py-3 my-2 rounded-full font-medium flex items-center gap-2 hover:bg-white group-hover:text-black transition">
               <span class="group-hover:text-black transition-colors duration-200">
                 My email!!
               </span>
@@ -159,7 +160,7 @@ export default function YourLocal() {
               </span>
 
               <div class="bg-white group-hover:bg-black group-hover:shadow-lg inline-flex items-center px-9 py-2 rounded-full text-black group-hover:text-white transition-colors duration-200">
-                <span>033.788.4414</span>
+                <span>nvt112005@gmail.com</span>
               </div>
             </button>
           </div>
