@@ -60,7 +60,48 @@ export default function YourLocal() {
     }
   };
 
-  useEffect(() => {}, []);
+  // Demo: Lấy nhiệt độ của nhiều thành phố và sắp xếp bằng bubble sort
+  const [cityTemps, setCityTemps] = useState([]);
+  const cityList = [
+    "Hanoi", "Ho Chi Minh", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue"
+  ];
+
+  const fetchAllTemps = async () => {
+    setError("");
+    const temps = [];
+    for (let city of cityList) {
+      try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.cod === 200) {
+          temps.push({ city, temp: Math.floor(data.main.temp) });
+        }
+      } catch (error) {
+        console.error("Fetch weather error: ", error);
+        setError("Có lỗi xảy ra khi tra cứu!");
+        // Bỏ qua lỗi từng thành phố
+      }
+    }
+    // Bubble sort nhiệt độ tăng dần (dễ hiểu, giống C)
+    for (let i = 0; i < temps.length; i++) {
+      for (let j = i + 1; j < temps.length; j++) {
+        if (temps[j].temp < temps[i].temp) {
+          // Đổi chỗ temps[i] và temps[j] bằng biến tạm
+          const temp = temps[i];
+          temps[i] = temps[j];
+          temps[j] = temp;
+        }
+      }
+    }
+    setCityTemps(temps);
+  };
+
+  useEffect(() => {
+    fetchAllTemps();
+  });
+
+
 
   return (
     <>
@@ -71,12 +112,11 @@ export default function YourLocal() {
         </div>
       )}
 
-      <div className="weather-container flex w-full mt-4 items-center justify-center">
-        <div className="border-4 rounded-xl border-white shadow-2xl w-11/12 sm:w-96 h-auto bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-700/90 backdrop-blur-md">
-          <div className="text-white font-mono p-4 font-bold flex items-center justify-center">
+      <div className="weather-container flex w-full mt-4 items-start justify-center gap-8 font-sans">
+        <div className="border-4 rounded-xl border-white shadow-2xl w-11/12 sm:w-96 h-auto bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-700/90 backdrop-blur-md font-mono">
+          <div className="text-white font-mono p-4 font-bold flex items-center justify-center text-xl sm:text-2xl">
             Dự báo thời tiết
           </div>
-
           <div className="flex items-center justify-center">
             {weatherData && (
               <img
@@ -86,7 +126,6 @@ export default function YourLocal() {
               />
             )}
           </div>
-
           <div className="flex items-center justify-around px-10 mt-5">
             <img
               src={Temp}
@@ -97,7 +136,6 @@ export default function YourLocal() {
               Nhiệt độ: {weatherData?.temp} °C
             </p>
           </div>
-
           <div className="flex items-center justify-around px-10 mt-5">
             <img
               src={Humidity}
@@ -108,7 +146,6 @@ export default function YourLocal() {
               Độ ẩm: {weatherData?.humidity} %
             </p>
           </div>
-
           <div className="flex items-center pb-5 mt-5 justify-center">
             <img src={Local} alt="weather icon" className="w-8 h-8 mr-2" />
             <p className="text-white font-mono text-lg font-bold">
@@ -116,6 +153,16 @@ export default function YourLocal() {
             </p>
           </div>
         </div>
+        {cityTemps.length > 0 && (
+          <div className="mt-0 bg-white/80 rounded-lg p-4 max-w-md shadow self-start font-sans">
+            <h3 className="font-bold text-blue-700 mb-2 text-lg sm:text-xl font-sans">Nhiệt độ các thành phố (tăng dần):</h3>
+            <ul className="font-sans text-base sm:text-lg">
+              {cityTemps.map((item, idx) => (
+                <li key={item.city} className="mb-1 font-semibold">{idx + 1}. {item.city}: {item.temp}°C</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       {/* Footer */}
       <footer class="bg-slate-200 text-slate-900 mt-10 ">
