@@ -63,7 +63,7 @@ export default function YourLocal() {
   // Demo: Lấy nhiệt độ của nhiều thành phố và sắp xếp bằng bubble sort
   const [cityTemps, setCityTemps] = useState([]);
   const cityList = [
-    "Hanoi", "Ho Chi Minh", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue"
+    "Hanoi", "Ho Chi Minh", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue", "Vinh", "Quy Nhon", "Buon Ma Thuot", "Pleiku", "Thanh Hoa", "Nam Dinh", "Thai Binh", "Ha Nam", "Bac Ninh", "Bac Giang", "Lang Son", "Lao Cai", "Ha Giang", "Tuyen Quang", "Yen Bai", "Phu Tho", "Hoa Binh", "Son La", "Dien Bien", "Lai Chau", "Cao Bang", "Thai Nguyen", "Bac Kan", "Quang Ninh", "Hai Duong", "Hung Yen", "Ninh Binh", "Nghe An", "Ha Tinh", "Quang Binh", "Quang Tri", "Thua Thien Hue", "Quang Nam", "Quang Ngai", "Kon Tum", "Gia Lai", "Dak Lak", "Dak Nong", "Lam Dong", "Binh Dinh", "Phu Yen", "Khanh Hoa", "Ninh Thuan", "Binh Thuan", "Tay Ninh", "Binh Duong", "Binh Phuoc", "Dong Nai", "Ba Ria Vung Tau", "Long An", "Tien Giang", "Ben Tre", "Tra Vinh", "Vinh Long", "Dong Thap", "An Giang", "Kien Giang", "Hau Giang", "Soc Trang", "Bac Lieu", "Ca Mau"
   ];
 
   const fetchAllTemps = async () => {
